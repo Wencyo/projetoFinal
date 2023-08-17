@@ -54,7 +54,18 @@ class Tratamento_Resposta:
             conteudo = self.resposta.json()
             print("Conteúdo:", conteudo)
         else:
-            analise_resposta()
+            self.analise_resposta()
+
+class local_ou_Publica:
+    def imagem_publica(self, url):
+        try:
+            resposta = requests.head(url)
+            return resposta.status_code == 200
+        except requests.RequestException:
+            return False
+    
+    def imagem_local(self, caminho):
+        return not urlparse(caminho).scheme
 
 class Util:
     def extrair_nome_extensao_url(self, url):
