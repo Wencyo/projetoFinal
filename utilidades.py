@@ -2,7 +2,7 @@ import requests
 import os
 
 import Entidades
-import Filtros
+import filtros
 import os
 import time
 from urllib.parse import urlparse
